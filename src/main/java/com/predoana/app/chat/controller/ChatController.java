@@ -17,6 +17,8 @@ public class ChatController {
 
         return new ChatOutMessage(message.getMessage());
     }
+
+    @MessageMapping("/guestupdate")
     public ChatOutMessage handleUserIsTyping(ChatInMessage message) throws Exception {
         return new ChatOutMessage("Someone is typing...");
     }
