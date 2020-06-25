@@ -17,4 +17,7 @@ public class ChatController {
 
         return new ChatOutMessage(message.getMessage());
     }
+    public ChatOutMessage handleUserIsTyping(ChatInMessage message) throws Exception {
+        return new ChatOutMessage("Someone is typing...");
+    }
 }
