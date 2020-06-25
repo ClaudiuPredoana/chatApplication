@@ -19,6 +19,7 @@ public class ChatController {
     }
 
     @MessageMapping("/guestupdate")
+    @SendTo("/topic/guestupdates")
     public ChatOutMessage handleUserIsTyping(ChatInMessage message) throws Exception {
         return new ChatOutMessage("Someone is typing...");
     }
