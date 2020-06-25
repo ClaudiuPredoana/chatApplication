@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 public class ChatController {
 
     @MessageMapping("/guestchat")
+    @SendTo("/topic/guestchats")
     public ChatOutMessage handleMessaging(ChatInMessage message) throws Exception {
         Thread.sleep(1000); // simulate delay
 
