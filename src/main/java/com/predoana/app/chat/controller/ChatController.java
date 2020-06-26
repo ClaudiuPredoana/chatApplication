@@ -23,4 +23,16 @@ public class ChatController {
     public ChatOutMessage handleUserIsTyping(ChatInMessage message) throws Exception {
         return new ChatOutMessage("Someone is typing...");
     }
+
+    public ChatOutMessage handleException(Throwable exception){
+        ChatOutMessage myError = new ChatOutMessage("An error happened...");
+        return myError;
+    }
+
+
+
+
+
+
+
 }
