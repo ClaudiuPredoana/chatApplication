@@ -3,6 +3,7 @@ package com.predoana.app.chat.controller;
 
 import com.predoana.app.chat.model.ChatInMessage;
 import com.predoana.app.chat.model.ChatOutMessage;
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ public class ChatController {
         return new ChatOutMessage("Someone is typing...");
     }
 
+    @MessageExceptionHandler
+    @SendTo("/topic/errors")
     public ChatOutMessage handleException(Throwable exception){
         ChatOutMessage myError = new ChatOutMessage("An error happened...");
         return myError;
