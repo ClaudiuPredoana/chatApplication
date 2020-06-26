@@ -11,6 +11,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/chat-app").withSockJS();
     }
 
+    public void confugureMessageBroker(MessageBrokerRegistry config){
+        config.enableSimpleBroker("/topic");
+        config.setApplicationDestinationPrefixes("/app");
+    }
+
 
 
 
