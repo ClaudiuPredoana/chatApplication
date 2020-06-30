@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.util.HtmlUtils;
 
 @Controller
 public class ChatController {
@@ -16,7 +17,7 @@ public class ChatController {
     public ChatOutMessage handleMessaging(ChatInMessage message) throws Exception {
         Thread.sleep(1000); // simulate delay
 
-        return new ChatOutMessage(message.getMessage());
+        return new ChatOutMessage(HtmlUtils.htmlEscape(message.getMessage()));
     }
 
     @MessageMapping("/guestupdate")
@@ -33,9 +34,7 @@ public class ChatController {
 
     @MessageExceptionHandler
     @SendTo("/topic/errors")
-    public ChatOutMessage handleException(Throwable exception){
-        ChatOutMessage myError = new ChatOutMessage("An error happened...");
-        return myError;
+    public String handleException(Throwable exception) {
+        return exception.getMessage();
     }
-
 }
