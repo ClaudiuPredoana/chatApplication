@@ -32,7 +32,9 @@ function connect() {
             showJoinedName(JSON.parse(greeting.body).content);
         });
 
-        //JSON.parse(greeting.body).content
+        stompClient.subscribe("/topic/guestchats", function (greeting) {
+            showMessage(JSON.parse(greeting.body).content);
+        });
         sendName();
     });
 
