@@ -32,10 +32,4 @@ public class ChatController {
         return myError;
     }
 
-
-
-
-
-
-
 }

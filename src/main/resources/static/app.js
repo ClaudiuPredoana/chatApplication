@@ -48,7 +48,7 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("", {}, JSON.stringify({'message': $("#shortName").val()}));
+    stompClient.send("/app/guestjoin", {}, JSON.stringify({'message': $("#shortName").val()}));
 }
 
 function showJoinedName(message) {
