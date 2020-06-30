@@ -28,8 +28,8 @@ function connect() {
         console.log('Connected: ' + frame);
 
         // subscribe to topic and create the callback function that handles updates from the server
-        stompClient.subscribe("", function (greeting) {
-
+        stompClient.subscribe("/topic/guestnames", function (greeting) {
+            showJoinedName(JSON.parse(greeting.body).content);
         });
 
         //JSON.parse(greeting.body).content
