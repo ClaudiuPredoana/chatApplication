@@ -49,8 +49,8 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
-    stompClient.send("/app/guestjoin", {}, JSON.stringify({'message': $("#shortName").val()}));
+function sendMessage() {
+  stompClient.send("/app/guestchat", {}, JSON.stringify({'message': $("#message").val()}));
 }
 
 function showMessage(message) {
@@ -58,6 +58,11 @@ function showMessage(message) {
     $("#typingUpdates").html("<tr><td>&nbsp;</td></tr>");
     $("#message").val("");
 }
+
+function sendName() {
+    stompClient.send("/app/guestjoin", {}, JSON.stringify({'message': $("#shortName").val()}));
+}
+
 
 function showJoinedName(message) {
 	shortName = message;
