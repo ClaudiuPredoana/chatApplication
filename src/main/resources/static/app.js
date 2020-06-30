@@ -53,6 +53,12 @@ function sendName() {
     stompClient.send("/app/guestjoin", {}, JSON.stringify({'message': $("#shortName").val()}));
 }
 
+function showMessage(message) {
+    $("#chatMessages").append("<tr><td>" + message + "</td></tr>");
+    $("#typingUpdates").html("<tr><td>&nbsp;</td></tr>");
+    $("#message").val("");
+}
+
 function showJoinedName(message) {
 	shortName = message;
     $("#members").append("<tr><td>" + message + " just joined</td></tr>");
