@@ -88,7 +88,7 @@ $(function () {
 
      $("#message").keyup(function (e)  {
     		// Send "is typing" message to server after keystrokes detected
-    		stompClient.send("", {}, JSON.stringify({'message': $("#message").val()}));
+    		stompClient.send("/app/guestupdate", {}, JSON.stringify({'message': $("#message").val()}));
     	});
 
 });
