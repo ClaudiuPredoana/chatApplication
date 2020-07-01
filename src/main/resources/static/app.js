@@ -51,6 +51,9 @@ function disconnect() {
     setConnected(false);
     console.log("Disconnected");
 }
+function showTyping(message) {
+	$("#typingUpdates").html("<tr><td>Someone is typing...</td></tr>");
+}
 
 function sendMessage() {
   stompClient.send("/app/guestchat", {}, JSON.stringify({'message': $("#message").val()}));
