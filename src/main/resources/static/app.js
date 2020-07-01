@@ -35,6 +35,9 @@ function connect() {
         stompClient.subscribe("/topic/guestchats", function (greeting) {
             showMessage(JSON.parse(greeting.body).content);
         });
+         stompClient.subscribe('topic/guestupdates', function (greeting) {
+                		showTyping(JSON.parse(greeting.body).content);
+                });
         sendName();
     });
 
