@@ -17,6 +17,10 @@ public class ChatController {
     public ChatOutMessage handleMessaging(ChatInMessage message) throws Exception {
         Thread.sleep(1000); // simulate delay
 
+        message=null;
+        message.getMessage();
+
+
         return new ChatOutMessage(HtmlUtils.htmlEscape(message.getMessage()));
     }
 
