@@ -34,7 +34,9 @@ public class ChatController {
 
     @MessageExceptionHandler
     @SendTo("/topic/errors")
-    public String handleException(Throwable exception) {
-        return exception.getMessage();
+    public ChatOutMessage handleException(Throwable exception){
+
+    ChatOutMessage myError = new ChatOutMessage("An error happened.");
+		return myError;
     }
 }
