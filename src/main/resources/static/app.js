@@ -79,6 +79,10 @@ function showJoinedName(message) {
     $("#members").append("<tr><td>" + message + " just joined</td></tr>");
 }
 
+function showErrors(message) {
+	$("#errorMessages").html("<tr><td>" + message + "</td></tr>");
+}
+
 $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
